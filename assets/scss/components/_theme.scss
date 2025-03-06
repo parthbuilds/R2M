@@ -1443,6 +1443,7 @@ ul {
     z-index: 1;
     margin: 0;
     right: 26px;
+    padding-right: 4px;
     -moz-transform: rotate(-90deg);
     -webkit-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
@@ -1475,6 +1476,7 @@ ul {
 
     .switcher-button .switcher-button-inner-left:before {
         right: 10px;
+        padding-right: 4px;
         content: "\f185";
         font-family: "Font Awesome 6 Pro";
         font-size: 16px;

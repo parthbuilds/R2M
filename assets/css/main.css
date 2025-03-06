@@ -2752,6 +2752,7 @@ ul {
   z-index: 1;
   margin: 0;
   right: 26px;
+  padding-right: 4px;
   -moz-transform: rotate(-90deg);
   -webkit-transform: rotate(-90deg);
   -o-transform: rotate(-90deg);
@@ -2782,6 +2783,7 @@ ul {
 
 [data-theme=light] .switcher-button .switcher-button-inner-left:before {
   right: 10px;
+  padding-right: 4px;
   content: "\f185";
   font-family: "Font Awesome 6 Pro";
   font-size: 16px;
@@ -5045,7 +5047,7 @@ START: Hero CSS
   bottom: 40px;
   left: 46.5%;
   transform: translateX(-50%);
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   width: 100%;
   text-align: center;
   display: flex;
@@ -5458,7 +5460,7 @@ START: Hero CSS
 .hero-content-3 .title {
   font-size: 120px;
   font-weight: 700;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   margin-bottom: 20px;
 }
 .hero-content-3 .title.anim-text {
@@ -6223,7 +6225,7 @@ START: Hero CSS
 .hero-info-5 .title {
   font-size: 80px;
   font-weight: 700;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 @media (max-width: 1600px) {
   .hero-info-5 .title {
