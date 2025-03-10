@@ -927,9 +927,9 @@ ul {
 
 /*Marquee*/
 :root {
-  --color-text: navy;
-  --color-bg: papayawhip;
-  --color-bg-accent: #ecdcc0;
+  /* --color-text: navy;
+  --color-bg: papayawhip; */
+  /* --color-bg-accent: #3f5af324; */
   --size: clamp(6rem, 1rem + 40vmin, 20rem);
   --gap: calc(var(--size) / 14);
   --duration: 60s;
@@ -939,9 +939,9 @@ ul {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-text: papayawhip;
-    --color-bg: navy;
-    --color-bg-accent: #2626a0;
+    /* --color-text: papayawhip; */
+    /* --color-bg: navy;
+    --color-bg-accent: #2626a0; */
   }
 }
 
@@ -5375,6 +5375,20 @@ START: Hero CSS
   font-weight: 700;
   text-transform: uppercase;
 }
+[data-theme="light"] .hero-section-2 .hero-sidebar .sidebar-social li a {
+  color: var(--rr-color-common-black);
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
 .hero-section-2 .hero-sidebar .sidebar-social li a:hover {
   color: var(--rr-color-theme-primary);
 }
@@ -8046,7 +8060,7 @@ START: Service CSS
   opacity: 0.5;
 }
 .service-item .service-thumb .overlay-color {
-  background: #001695;
+  background: var(--rr-color-theme-primary);
   mix-blend-mode: multiply;
   width: 100%;
   height: 100%;
@@ -8165,7 +8179,7 @@ START: Service CSS
   transition: all 0.4s ease-in-out;
 }
 .service-item.service-item-2 .service-thumb:before {
-  background-color: #3F5AF3;
+  background-color: #001695;
   content: "";
   mix-blend-mode: multiply;
   width: 100%;
