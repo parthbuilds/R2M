@@ -43,19 +43,20 @@ START: Template Default CSS
   --rr-fs-h5: 16px;
   --rr-fs-h6: 14px;
   --rr-color-common-white: #ffffff;
-  --rr-color-common-black: #000000;
+  --rr-color-common-black: #081a19;
   --rr-color-common-dark: #232323;
-  --rr-color-heading-primary: #11151C;
+  --rr-color-heading-primary: #081a19;
   --rr-color-text-body: #B0B2B7;
   --rr-color-text-body-light: #74787C;
   --rr-color-theme-primary: #3F5AF3;
   --rr-color-theme-secondary: #ffc226;
-  --rr-color-bg-1: #11151C; 
+  --rr-color-bg-1: #081a19; 
   --rr-color-grey-1: #F8F8F8;
   --rr-color-grey-2: #2D343E;
   --rr-color-grey-light: #F2F3F4;
   --rr-color-border-1: #1E2228;
   --rr-color-border-light: #E4E4E4;
+  --rr-color-button-light: #081a19;
 }
 
 * {
@@ -929,9 +930,10 @@ ul {
 :root {
   /* --color-text: navy;
   --color-bg: papayawhip; */
-  /* --color-bg-accent: #3f5af324; */
-  --size: clamp(6rem, 1rem + 40vmin, 20rem);
-  --gap: calc(var(--size) / 14);
+  --color-bg-accent: #3f5af324;
+  --color-bg-dark: white;
+  --size: clamp(10rem, 1rem + 40vmin, 20rem);
+  --gap: calc(var(--size) / 24);
   --duration: 60s;
   --scroll-start: 0;
   --scroll-end: calc(-100% - var(--gap));
@@ -1021,6 +1023,10 @@ ul {
   aspect-ratio: 16/9;
   padding: calc(var(--size) / 5);
   border-radius: 0.5rem;
+}
+
+[data-theme="dark"] .marquee img {
+  background: var(--color-bg-dark);
 }
 
 .marquee--vertical img {
@@ -3065,6 +3071,89 @@ ul {
 .rr-primary-btn.transparent:before {
   background-color: var(--rr-color-theme-primary);
 }
+
+
+/* Button Light */
+
+[data-theme=light] .rr-primary-btn {
+    background-color: var(--rr-color-button-light);
+    font-family: var(--rr-ff-heading);
+    color: var(--rr-color-common-white);
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1;
+    padding: 22px 30px;
+    border-radius: 0px;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    text-transform: capitalize;
+    position: relative;
+    z-index: 1;
+  }
+  .rr-primary-btn:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.2);
+    -webkit-transform-origin: right center;
+    -moz-transform-origin: right center;
+    -ms-transform-origin: right center;
+    transform-origin: right center;
+    -webkit-transform: scale(0, 1);
+    -moz-transform: scale(0, 1);
+    -ms-transform: scale(0, 1);
+    -o-transform: scale(0, 1);
+    transform: scale(0, 1);
+    -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -moz-transition: -moz-transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -ms-transition: -ms-transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -o-transition: -o-transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+  }
+  .rr-primary-btn i {
+    margin-left: 10px;
+    font-size: 14px;
+    transform: rotate(-45deg);
+    transition: all 0.3s ease-in-out;
+  }
+  .rr-primary-btn:hover {
+    color: var(--rr-color-common-white);
+  }
+  .rr-primary-btn:hover:before {
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -ms-transform-origin: left center;
+    transform-origin: left center;
+    -webkit-transform: scale(1, 1);
+    -moz-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -o-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  .rr-primary-btn:hover i {
+    transform: rotate(0deg);
+  }
+  .rr-primary-btn:focus {
+    color: var(--rr-color-common-white);
+  }
+  .rr-primary-btn.transparent {
+    background-color: transparent;
+    border: 1px solid var(--rr-color-theme-primary);
+    color: var(--rr-color-heading-primary);
+  }
+  .rr-primary-btn.transparent:hover {
+    color: var(--rr-color-common-white);
+  }
+  .rr-primary-btn.transparent:before {
+    background-color: var(--rr-color-theme-primary);
+  }
+  
 
 /**----------------------------------------
 START: Header CSS
@@ -5253,7 +5342,7 @@ START: Hero CSS
   }
 }
 .hero-section-2 .hero-text .inner-text {
-  color: var(--rr-color-bg-1);
+  color: var(--rr-color-theme-primary);
   margin-bottom: 0;
   font-size: 150px;
   font-weight: 700;
@@ -5262,6 +5351,7 @@ START: Hero CSS
   position: relative;
   z-index: 1;
 }
+
 @media (max-width: 1600px) {
   .hero-section-2 .hero-text .inner-text {
     font-size: 100px;
@@ -19875,7 +19965,7 @@ START: Footer CSS
 }
 
 [data-theme=light] .hero-section-2 .hero-text .inner-text {
-  color: #f8f8f8;
+  color: var(--rr-color-heading-primary);
 }
 [data-theme=light] .hero-section-2 .hero-text .inner-text .container-svg {
   display: none;
