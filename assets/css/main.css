@@ -18032,6 +18032,19 @@ START: Theme Slider CSS
     transform-origin: top;
   }
 }
+
+.arrow-wrapper{
+  background-color: var(--rr-color-theme-primary);
+  padding: 12px;
+  border-radius: 5rem;
+}
+
+
+
+
+
+
+
 /* !END: Theme Slider CSS */
 /**----------------------------------------
     START: Exp CSS
