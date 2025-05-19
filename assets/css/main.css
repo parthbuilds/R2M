@@ -48,7 +48,7 @@ START: Template Default CSS
   --rr-color-heading-primary: #081a19;
   --rr-color-text-body: #B0B2B7;
   --rr-color-text-body-light: #74787C;
-  --rr-color-theme-primary: #3F5AF3;
+  --rr-color-theme-primary: #51b1fd;
   --rr-color-theme-secondary: #ffc226;
   --rr-color-bg-1: #081a19; 
   --rr-color-grey-1: #F8F8F8;
@@ -5217,7 +5217,7 @@ START: Hero CSS
   }
 }
 .hero-content .title:before {
-  background: linear-gradient(270deg, #3F5AF3 0%, transparent 100%);
+  background: linear-gradient(270deg, #51b1fd 0%, transparent 100%);
   content: "";
   width: 100%;
   height: 76%;
@@ -5272,7 +5272,7 @@ START: Hero CSS
   transition: all 0.3s ease-in-out;
 }
 .hero-content .hero-btn:before {
-  background-color: #3F5AF3;
+  background-color: #51b1fd;
   mix-blend-mode: multiply;
   content: "";
   width: 170px;
@@ -6045,7 +6045,7 @@ START: Hero CSS
   left: 0;
 }
 .hero-mask-img-5:before {
-  background: #3F5AF3;
+  background: #51b1fd;
   mix-blend-mode: multiply;
   content: "";
   height: 100%;
@@ -7077,7 +7077,7 @@ START: About CSS
   }
 }
 .about-wrap .about-img-wrap .about-img .img-shape {
-  background-color: #3F5AF3;
+  background-color: #51b1fd;
   mix-blend-mode: multiply;
   content: "";
   width: 90px;
@@ -8535,7 +8535,7 @@ START: Service CSS
   z-index: 1;
 }
 .service-box-wrap .service-box .service-img:after {
-  background: radial-gradient(100% 100% at 50% 0%, rgba(63, 90, 243, 0) 0%, #3F5AF3 100%);
+  background: radial-gradient(100% 100% at 50% 0%, rgba(63, 90, 243, 0) 0%, #51b1fd 100%);
   filter: blur(75px);
   content: "";
   width: 255px;
@@ -10668,7 +10668,7 @@ START: Project CSS
   z-index: 2;
 }
 .project-box-2:after {
-  background: #3f5af3;
+  background: #51b1fd;
   mix-blend-mode: multiply;
   content: "";
   width: 100%;
@@ -11290,7 +11290,7 @@ START: Blog CSS
   z-index: 1;
 }
 .post-card-2 .post-thumb:after {
-  background: linear-gradient(180deg, rgba(14, 32, 147, 0.7) 0%, #3F5AF3 88.88%);
+  background: linear-gradient(180deg, rgba(14, 32, 147, 0.7) 0%, #51b1fd 88.88%);
   mix-blend-mode: multiply;
   content: "";
   width: 100%;
@@ -12063,7 +12063,7 @@ START: Sponsor CSS
   }
 }
 .page-header .page-header-content .title:before {
-  background: linear-gradient(270deg, #3F5AF3 0%, transparent 100%);
+  background: linear-gradient(270deg, #51b1fd 0%, transparent 100%);
   content: "";
   width: 100%;
   height: 76%;
@@ -12276,7 +12276,7 @@ START: Reward CSS
   transition: all 0.4s ease-in-out;
 }
 .reward-item .bg-img:before {
-  background-color: #3F5AF3;
+  background-color: #51b1fd;
   mix-blend-mode: multiply;
   content: "";
   width: 100%;
@@ -12595,7 +12595,7 @@ START: Team CSS
   filter: saturate(0.6);
 }
 .team-item-3 .team-thumb:before {
-  background: linear-gradient(180deg, rgba(14, 21, 64, 0) 0%, #3F5AF3 100%);
+  background: linear-gradient(180deg, rgba(14, 21, 64, 0) 0%, #51b1fd 100%);
   content: "";
   width: 100%;
   height: 100%;
@@ -13420,7 +13420,7 @@ START: Brand CSS
   width: 100%;
 }
 .brand-wrap .brand-img-wrap .brand-img:before {
-  background-color: #3F5AF3;
+  background-color: #51b1fd;
   mix-blend-mode: multiply;
   content: "";
   width: 100%;
@@ -13610,7 +13610,7 @@ START: Cta CSS
   z-index: -1;
 }
 .cta-section-5 .overlay {
-  background: #3F5AF3;
+  background: #51b1fd;
   mix-blend-mode: multiply;
   transform: rotate(180deg);
   width: 100%;
@@ -13694,7 +13694,7 @@ START: Cta CSS
   left: 0;
 }
 .cta-section-7 .bg-item .round-shape {
-  background: #3F5AF3;
+  background: #51b1fd;
   mix-blend-mode: multiply;
   position: absolute;
   top: 50%;
