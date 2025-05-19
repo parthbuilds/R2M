@@ -18034,13 +18034,10 @@ START: Theme Slider CSS
 }
 
 .arrow-wrapper{
-  background-color: var(--rr-color-theme-primary);
+  background-color: var(--rr-color-text-body-light);
   padding: 12px;
   border-radius: 5rem;
 }
-
-
-
 
 
 
