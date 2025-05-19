@@ -63,7 +63,7 @@ START: Service CSS
             position: absolute;
             top: 0;
             left: 0;
-            opacity: 0.3;
+            opacity: 0.1;
             @include transition(all 0.4s ease-in-out);
             z-index: 2;
         }
