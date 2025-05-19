@@ -47,7 +47,7 @@ START: Template Default CSS
   --rr-color-common-dark: #232323;
   --rr-color-heading-primary: #081a19;
   --rr-color-text-body: #B0B2B7;
-  --rr-color-text-body-light: #74787C;
+  --rr-color-text-body-light: #081a19;
   --rr-color-theme-primary: #51b1fd;
   --rr-color-theme-secondary: #ffc226;
   --rr-color-bg-1: #081a19; 
@@ -8147,7 +8147,7 @@ START: Service CSS
   object-fit: cover;
   z-index: -1;
   position: relative;
-  opacity: 0.5;
+  /* opacity: 0.5; */
 }
 .service-item .service-thumb .overlay-color {
   background: var(--rr-color-theme-primary);
@@ -18033,11 +18033,11 @@ START: Theme Slider CSS
   }
 }
 
-.arrow-wrapper{
+/* .arrow-wrapper{
   background-color: var(--rr-color-text-body-light);
   padding: 12px;
   border-radius: 5rem;
-}
+} */
 
 
 
@@ -20021,7 +20021,7 @@ START: Footer CSS
 }
 
 [data-theme=light] .counter-item .title {
-  color: rgba(63, 90, 243, 0.14);
+  color: #081a19;
 }
 
 [data-theme=light] .about-wrap-3 {
