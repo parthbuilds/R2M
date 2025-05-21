@@ -218,7 +218,7 @@
                 </div>
                 <div class="container">
                     <div class="page-header-content text-center">
-                        <h1 class="title">Content Management System</h1>
+                        <h1 class="title">{service.title}</h1>
                         <h4 class="sub-title"><a class="home" href="index.html">Home </a><a class="home"
                                 href="service.html">Service </a><a class="inner-page" href="service.html">Content
                                 Management System</a></h4>
@@ -508,6 +508,33 @@
     </div>
 
     <!-- JS here -->
+    <script>const urlParams = new URLSearchParams(window.location.search);
+        const serviceId = urlParams.get('id');
+
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                const service = data.find(item => item.id === serviceId);
+                if (service) {
+                    document.querySelector('.page-header-content .title').textContent = service.title;
+                    document.querySelector('.service-details-thumb img').src = service.image;
+                    document.querySelector('.service-details-content h2').textContent = service.title;
+                    document.querySelector('.service-details-content p').textContent = service.description;
+
+                    const detailsList = document.querySelector('.service-details-list');
+                    detailsList.innerHTML = ''; // Clear existing list items
+                    service.details.forEach(detail => {
+                        const li = document.createElement('li');
+                        li.textContent = detail;
+                        detailsList.appendChild(li);
+                    });
+                } else {
+                    // Handle case where service is not found (e.g., display an error message)
+                    document.querySelector('.service-details-content').innerHTML = '<p>Service details not found.</p>';
+                }
+            })
+            .catch(error => console.error('Error fetching data:', error));</script>
+
     <script src="assets/js/vendor/jquary-3.6.0.min.js"></script>
     <script src="assets/js/vendor/bootstrap-bundle.js"></script>
     <script src="assets/js/vendor/imagesloaded-pkgd.js"></script>

@@ -427,7 +427,7 @@ START: Header CSS
         }
     }
     &.fixed {
-        background-color: var(--rr-color-bg-1);
+        background-color: var(--rr-color-bg-6);
         left: 0px;
         width: 100%;
         padding: 0;
@@ -463,197 +463,56 @@ START: Header CSS
 
 .header-3 {
     top: 0;
-    .top-bar {
-        border-bottom: 1px solid var(--rr-color-border-1);
+    left: 120px;
+    width: calc(100% - 120px);
+    @include breakpoint(md) {
+        width: 100%;
+        left: 0;
     }
-    .top-bar-inner {
-        @include flex-vertical-center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        row-gap: 20px;
+    &:before {
+        background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+        content: "";
+        width: calc(100% + 120px);
+        height: 1px;
+        position: absolute;
+        bottom: 0;
+        left: -120px;
+        z-index: -1;
         @include breakpoint(md) {
-            justify-content: center;
-        }
-        @include breakpoint(sm) {
             display: none;
         }
-        .site-logo {
-            max-width: 171px;
-            @include breakpoint(md) {
-                display: none;
-            }
-            .logo-dark {
-                display: block;
-            }
-            .logo-light {
-                display: none;
-            }
+    }
+    &.fixed {
+        background-color: var(--rr-color-bg-2);
+        left: 0px;
+        width: 100%;
+        padding: 0;
+        &:before {
+            display: none;
         }
-        .top-bar-items {
-            @include flex-vertical-center;
-            flex-wrap: wrap;
-            row-gap: 15px;
-            @include breakpoint(sm) {
-                display: none;
-            }
-            .top-bar-item {
-                @include flex-vertical-center;
-                column-gap: 15px;
-                padding-top: 20px;
-                padding-bottom: 20px;
-                &:not(:last-of-type) {
-                    margin-right: 40px;
-                    padding-right: 40px;
-                    border-right: 1px solid var(--rr-color-border-1);
-                    @include breakpoint(lg) {
-                        padding-right: 20px;
-                        margin-right: 20px;
-                    }
-                }
-                .icon {
-                    background-color: var(--rr-color-bg-1);
-                    height: 40px;
-                    width: 40px;
-                    @include flex-center;
-                    border: 1px solid var(--rr-color-border-1);
-                }
-                .content {
-                    a,
-                    p {
-                        color: var(--rr-color-common-white);
-                        font-size: 16px;
-                        line-height: 1.6;
-                        margin-bottom: 0;
-                        br {
-                            display: block;
-                        }
-                    }
-                    a {
-                        &:hover {
-                            color: var(--rr-color-theme-primary);
-                        }
-                    }
-                }
+        .primary-header-inner {
+            padding: 0 60px;
+            margin-left: 0;
+            @include breakpoint(md) {
+                padding: 20px;
             }
         }
     }
     .primary-header-inner {
-        padding-left: 0;
-        padding-right: 0;
-        .header-logo {
-            display: none;
-            @include breakpoint(md) {
-                display: block;
-            }
-        }
         .header-menu-wrap {
             ul {
                 li {
                     a {
-                        font-family: var(--rr-ff-heading);
-                        padding-top: 0;
-                        padding-bottom: 0;
-                        line-height: 1;
-                        text-transform: capitalize;
-                        letter-spacing: 0;
-                        font-size: 16px;
-                    }
-                    &.menu-item-has-children {
-                        a {
-                            padding-right: 0;
-                        }
-                        &:after {
-                            display: none;
-                        }
+                        padding: 45px 0;
                     }
                     ul {
-                        top: 50px;
-                        li {
-                            a {
-                                font-size: 14px;
-                                letter-spacing: 0;
-                            }
-                        }
+                        top: 113px;
                     }
                 }
             }
         }
         .header-right-wrap {
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            @include breakpoint(md) {
-                width: auto;
-            }
-            .header-right {
-                .rr-primary-btn {
-                    @include breakpoint(md) {
-                        margin-right: 20px;
-                    }
-                    @include breakpoint(sm) {
-                        display: none;
-                    }
-                }
-            }
-        }
-    }
-    .primary-header.fixed {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        .primary-header-inner {
-            @include flex-vertical-center;
-            justify-content: space-between;
-            padding: 0;
-            .header-logo {
-                display: block;
-            }
-            .header-right-wrap {
-                width: auto;
-                .header-menu-wrap {
-                    margin-right: 60px;
-                    ul {
-                        top: 87px;
-                        li {
-                            a {
-                                padding: 35px 0;
-                            }
-                            ul {
-                                li {
-                                    a {
-                                        padding: 20px 0;
-                                        padding-left: 30px;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    &.fixed {
-        transform: translateY(-92px);
-        .top-bar {
-            border: none;
-        }
-        .primary-header-inner {
-            .header-menu-wrap {
-                ul {
-                    li {
-                        a {
-                            padding: 40px 0;
-                        }
-                        ul {
-                            top: 96px;
-                            li {
-                                a {
-                                    padding: 20px 0;
-                                    padding-left: 30px;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            display: block;
         }
     }
 }
@@ -1807,15 +1666,8 @@ START: Header CSS
         transform: translateY(46px) translateX(-10px);
     }
 
-    .header-3 .primary-header-inner .header-menu-wrap ul li.mega-menu ul{
-        left: 14%!important;
-        top: 165px;
-        @include breakpoint(xxxl){
-            left: 7%!important;
-        }
-        @include breakpoint(xxl){
-            left: 1%!important;
-        }
+    .header-3 .primary-header-inner .header-menu-wrap ul li.mega-menu:after{
+        transform: translateY(46px) translateX(-10px);
     }
 
     .header-5 .primary-header-inner .header-menu-wrap ul li.mega-menu ul{
