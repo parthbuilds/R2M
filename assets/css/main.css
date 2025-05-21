@@ -7016,8 +7016,8 @@ START: About CSS
 
 .about-img-box {
   position: relative;
-  height: 650px;
-  max-width: 600px;
+  height: 500px;
+  /* max-width: 600px; */
   width: 100%;
   position: relative;
 }
@@ -7037,9 +7037,9 @@ START: About CSS
 .about-img-box .img-1 img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
-.about-img-box .img-2 {
+/* .about-img-box .img-2 {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -7053,7 +7053,7 @@ START: About CSS
   object-fit: cover;
   border-top: 10px solid #02050A;
   border-left: 10px solid #02050A;
-}
+} */
 .about-img-box .shape {
   position: absolute;
 }
@@ -7136,7 +7136,7 @@ START: About CSS
 .about-wrap-3 .about-text {
   position: absolute;
   top: 70px;
-  left: 25%;
+  left: 35%;
   z-index: 1;
 }
 .about-wrap-3 .about-text .mission {
@@ -19930,7 +19930,7 @@ START: Footer CSS
   background-image: inherit !important;
 }
 [data-theme=light] .about-wrap-3 .about-text .mission {
-  color: #F8F8F8;
+  color: #081a19;
 }
 
 [data-theme=light] .newsletter-form .form-control {
@@ -21108,3 +21108,40 @@ START: Footer CSS
 }
 
 /*# sourceMappingURL=main.css.map */
+
+/* Custom CSS for 2x2 grid on small screens */
+
+@media (max-width: 991.98px) { /* Applies to screens smaller than large (i.e., md, sm, xs) */
+    .counter-section .row > [class*="col-"] {
+        flex: 0 0 50%; /* Each column takes 50% width */
+        max-width: 50%; /* Max width also 50% */
+        padding-left: 15px; /* Adjust padding as needed, mimicking Bootstrap's default */
+        padding-right: 15px; /* Adjust padding as needed */
+    }
+
+    /* To handle vertical spacing if gy-4 isn't sufficient or is being overridden */
+    .counter-section .row .counter-item {
+        margin-bottom: 30px; /* Add some space below each item on smaller screens */
+    }
+
+    /* Remove bottom margin for the last two items in the 2x2 grid */
+    .counter-section .row > [class*="col-"]:nth-last-child(1) .counter-item,
+    .counter-section .row > [class*="col-"]:nth-last-child(2) .counter-item {
+        margin-bottom: 0;
+    }
+}
+
+
+/* Adjust for very small screens if needed (e.g., if col-sm-6 still stacks) */
+@media (max-width: 575.98px) { /* Applies to screens smaller than small (i.e., xs) */
+    /* If you still want 2 columns on very small screens, keep this.
+       Otherwise, if you prefer 1 column on xs, remove this block. */
+    .counter-section .row > [class*="col-"] {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    /* If you want to center items when they become 1 column, add this: */
+    /* .counter-section .row .counter-item {
+        text-align: center;
+    } */
+}
