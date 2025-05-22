@@ -7039,6 +7039,15 @@ START: About CSS
   height: 100%;
   object-fit: contain;
 }
+
+
+.about-img-box .img-2 {
+  position :absolute;
+  max-width: 650px;
+  width: 100%;
+  height: 480px;
+}
+
 /* .about-img-box .img-2 {
   position: absolute;
   bottom: 0;
@@ -7054,6 +7063,7 @@ START: About CSS
   border-top: 10px solid #02050A;
   border-left: 10px solid #02050A;
 } */
+
 .about-img-box .shape {
   position: absolute;
 }
