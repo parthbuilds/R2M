@@ -7146,7 +7146,7 @@ START: About CSS
   margin-bottom: 0;
   text-transform: uppercase;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: rgba(176, 178, 183, 0.09);
+  -webkit-text-stroke-color: rgba(255, 255, 255, 0.24);
 }
 @media only screen and (max-width: 992px) {
   .about-wrap-3 .about-text .mission {
@@ -13395,8 +13395,9 @@ START: Cta CSS
 .cta-wrap .cta-thumb-wrap img {
   height: 150px;
   width: 150px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   filter: grayscale(1);
+  object-fit: contain;
 }
 .cta-wrap .cta-thumb-wrap .cta-btn {
   background-color: var(--rr-color-theme-primary);
