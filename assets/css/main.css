@@ -7135,8 +7135,8 @@ START: About CSS
 }
 .about-wrap-3 .about-text {
   position: absolute;
-  top: 70px;
-  left: 35%;
+  top: 50px;
+  left: 40%;
   z-index: 1;
 }
 .about-wrap-3 .about-text .mission {
@@ -14665,6 +14665,13 @@ START: Sidebar CSS
   align-items: center;
 }
 
+@media only screen and (max-width: 992px) {
+  .side-menu-list li {
+  display: block;
+  align-items: initial;
+}
+}
+
 .side-menu-list li:not(:last-of-type) {
   margin-bottom: 20px;
 }
@@ -19623,7 +19630,7 @@ START: Footer CSS
   color: var(--rr-color-heading-primary);
 }
 [data-theme=light] .section-heading .bg-text {
-  color: #f8f8f8;
+  color: var(--rr-color-text-body);
   -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: #E8E9EF;
 }
@@ -19930,7 +19937,7 @@ START: Footer CSS
   background-image: inherit !important;
 }
 [data-theme=light] .about-wrap-3 .about-text .mission {
-  color: #081a19;
+  color: #B0B2B7;
 }
 
 [data-theme=light] .newsletter-form .form-control {
