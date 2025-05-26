@@ -3456,7 +3456,7 @@ START: Header CSS
 /* only for about page */
 .header-3 .primary-header-inner .header-menu-wrap ul li a {
   font-family: "Hind Madurai", sans-serif;
-  color: var(--rr-color-theme-primary);
+  color: var(--rr-color-heading-primary);
   display: block;
   font-size: 14px;
   padding: 35px 0;
@@ -3468,6 +3468,12 @@ START: Header CSS
   -webkit-font-smoothing: antialiased;
   transition: all 0.3s ease-in-out;
 }
+
+.header-3 .primary-header-inner .header-menu-wrap li ul li a {
+  color: var(--rr-color-grey-1);
+}
+
+
 
 @media (max-width: 1199px) {
   .header .primary-header-inner .header-menu-wrap ul li a {
@@ -3497,7 +3503,7 @@ START: Header CSS
 }
 
 .header .primary-header-inner .header-menu-wrap ul li.active.menu-item-has-children:after {
-  color: var(--rr-color-theme-primary);
+  color: var(--rr-color-heading-primary);
 }
 
 
@@ -5912,12 +5918,6 @@ START: Hero CSS
   font-weight: 700;
   text-transform: uppercase;
 }
-
-
-
-
-
-
 
 
 .hero-section-2 .hero-sidebar .sidebar-social li a:hover {
