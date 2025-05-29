@@ -3512,8 +3512,8 @@ START: Header CSS
 .header .primary-header-inner .header-menu-wrap ul li ul {
   /* background-color: var(--rr-color-common-white); */
   display: block;
-  width: 220px;
-  padding: 0;
+  width: 280px;
+  /* padding: 0; */
   -webkit-box-shadow: 0px 50px 100px 0px rgba(64, 1, 4, 0.1), 0px -6px 0px 0px rgba(248, 99, 107, 0.004);
   box-shadow: 0px 50px 100px 0px rgba(64, 1, 4, 0.1), 0px -6px 0px 0px rgba(248, 99, 107, 0.004);
   position: absolute;
