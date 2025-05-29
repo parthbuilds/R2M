@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const serviceItems = document.querySelectorAll('.service-item');
     const categoryDropdownMenu = document.getElementById('category-dropdown-menu');
     const brandDropdownMenu = document.getElementById('brand-dropdown-menu');
@@ -12,10 +12,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to populate dropdowns dynamically from service items
     function populateDropdowns() {
-        const categories = new Set();
-        const brands = new Set();
+        // --- START: Manual definition of categories and brands ---
+        // If you want to manually define categories, uncomment and modify this line:
+        const categories = new Set(['ATL Marketing', 'TTL Marketing', 'POS Marketing', 'B2B Marketing', 'Exhibition', 'Pr and Media', 'Brand Marketing', 'Entertainment Marketing', 'Merchandise Marketing', 'Corporate Events', 'Government Ventures']);
 
-        // Iterate through all service items to collect unique categories and brands
+        // If you want to manually define brands, uncomment and modify this line:
+        const brands = new Set([
+            "ABInBev", "Bacardi", "Beam Global", "Castrol", "Coca-Cola", "Exxon Mobil", "Kelloggs", "Marks", "Philips", "Sangam", "SGMA", "Shell", "SSB Homes", "Whirlpool", "Zydus", "Amul", "Honesty Uniforms", "Mahaveer Textiles", "Pepsi"
+        ]);
+        // --- END: Manual definition of categories and brands ---
+
+        // If you still want to extract from data attributes AND add manual ones,
+        // you would keep the serviceItems.forEach loop and then add to the Sets.
+        // For example:
+        /*
         serviceItems.forEach(item => {
             if (item.dataset.category) {
                 item.dataset.category.split(',').forEach(cat => categories.add(cat.trim()));
@@ -24,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 item.dataset.brands.split(',').forEach(brand => brands.add(brand.trim()));
             }
         });
+        */
 
         const categoryList = categoryDropdownMenu.querySelector('ul');
         const brandList = brandDropdownMenu.querySelector('ul');
@@ -37,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const li = document.createElement('li');
             li.dataset.filter = category;
             // Format text for display (e.g., "atl_marketing" becomes "Atl Marketing")
-            li.textContent = category.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase()); 
+            li.textContent = category.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
             categoryList.appendChild(li);
         });
 
@@ -46,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const li = document.createElement('li');
             li.dataset.filter = brand;
             // Format text for display (e.g., "brand_a" becomes "Brand A")
-            li.textContent = brand.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase()); 
+            li.textContent = brand.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
             brandList.appendChild(li);
         });
     }
@@ -85,17 +96,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Event listener for the category filter button (icon button)
-    categoryFilterButton.addEventListener('click', function() {
+    categoryFilterButton.addEventListener('click', function () {
         toggleDropdown(categoryDropdownMenu);
     });
 
     // Event listener for the brand filter button (icon button)
-    brandFilterButton.addEventListener('click', function() {
+    brandFilterButton.addEventListener('click', function () {
         toggleDropdown(brandDropdownMenu);
     });
 
     // Event listener for clicks within the category dropdown menu
-    categoryDropdownMenu.addEventListener('click', function(event) {
+    categoryDropdownMenu.addEventListener('click', function (event) {
         // Check if the clicked element is an LI item
         if (event.target.tagName === 'LI') {
             selectedCategory = event.target.dataset.filter; // Update the selected category
@@ -109,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Event listener for clicks within the brand dropdown menu
-    brandDropdownMenu.addEventListener('click', function(event) {
+    brandDropdownMenu.addEventListener('click', function (event) {
         // Check if the clicked element is an LI item
         if (event.target.tagName === 'LI') {
             selectedBrand = event.target.dataset.filter; // Update the selected brand
@@ -123,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Global click listener to close dropdowns if clicked outside
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
         // Check if the click was outside the category dropdown and its trigger elements
         if (!categoryDropdownMenu.contains(event.target) && event.target !== categoryFilterButton && event.target !== categorySelectedText) {
             categoryDropdownMenu.classList.remove('active');

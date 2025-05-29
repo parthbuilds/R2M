@@ -24218,8 +24218,7 @@ START: Footer CSS
 
 /* Custom styles for the filter section */
 .filter-section {
-    padding: 50px 0;
-    background-color: #02050A; /* Dark background similar to your theme */
+    padding: 50px 0; /* Dark background similar to your theme */
 }
 
 .filter-container {
@@ -24242,6 +24241,8 @@ START: Footer CSS
     position: relative;
     flex-grow: 1; /* Allow groups to grow */
     min-width: 250px; /* Minimum width to prevent squishing */
+    /* Adjust order for button on right */
+    justify-content: flex-end; /* Pushes dropdown-wrapper to left, button to right */
 }
 
 .filter-button {
@@ -24259,6 +24260,7 @@ START: Footer CSS
     transition: background-color 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     flex-shrink: 0; /* Prevent button from shrinking */
+    margin-left: 15px; /* Space between dropdown and button */
 }
 
 .filter-button:hover {
@@ -24268,7 +24270,7 @@ START: Footer CSS
 .filter-dropdown-wrapper {
     position: relative;
     flex-grow: 1;
-    margin-left: 15px; /* Space between button and dropdown */
+    /* No margin-left here, as button now provides spacing */
 }
 
 .filter-selected-text {
@@ -24300,8 +24302,8 @@ START: Footer CSS
     border-radius: 8px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     z-index: 9999; /* Very high z-index as requested */
-    max-height: 350px; /* Increased max height for "large" dropdown */
-    overflow-y: auto; /* Enable scrolling if content exceeds max height */
+    max-height: unset; /* Removed max height to show all options */
+    overflow-y: visible; /* Ensure no scrollbar */
     display: none; /* Hidden by default */
     padding: 10px 0;
 }
@@ -24341,10 +24343,11 @@ START: Footer CSS
     .filter-group {
         width: 100%; /* Full width for each group */
         margin-left: 0;
+        justify-content: space-between; /* Distribute items within the group */
     }
 
     .filter-button {
-        margin-right: 15px; /* Space between button and dropdown on stacked layout */
+        margin-left: 15px; /* Maintain space between dropdown and button */
     }
 
     .filter-dropdown-wrapper {
