@@ -24216,134 +24216,139 @@ START: Footer CSS
   display: block;
 }
 
-        /* Custom styles for the filter section */
-        .filter-section {
-            padding: 50px 0;
-            background-color: #02050A; /* Dark background similar to your theme */
-        }
+/* Custom styles for the filter section */
+.filter-section {
+    padding: 50px 0;
+    background-color: #02050A; /* Dark background similar to your theme */
+}
 
-        .filter-container {
-            width: 80%; /* 80% screen width as requested */
-            margin: 0 auto; /* Center the container */
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
-            gap: 20px; /* Space between items */
-        }
+.filter-container {
+    width: 80%; /* 80% screen width as requested */
+    margin: 0 auto; /* Center the container */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 20px; /* Space between items */
+    background-color: #081a19; /* Added a distinct background for the 80% width box */
+    padding: 20px; /* Add some padding inside the container */
+    border-radius: 10px; /* Slightly rounded corners for the container */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* More prominent shadow */
+}
 
-        .filter-group {
-            display: flex;
-            align-items: center;
-            position: relative;
-            flex-grow: 1; /* Allow groups to grow */
-            min-width: 250px; /* Minimum width to prevent squishing */
-        }
+.filter-group {
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex-grow: 1; /* Allow groups to grow */
+    min-width: 250px; /* Minimum width to prevent squishing */
+}
 
-        .filter-button {
-            background-color: #1a2332; /* Darker background for buttons */
-            color: #fff;
-            border: none;
-            border-radius: 50%; /* Round buttons */
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-            flex-shrink: 0; /* Prevent button from shrinking */
-        }
+.filter-button {
+    background-color: #1a2332; /* Darker background for buttons */
+    color: #fff;
+    border: none;
+    border-radius: 50%; /* Round buttons */
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
 
-        .filter-button:hover {
-            background-color: #51b1fd; /* Theme primary color on hover */
-        }
+.filter-button:hover {
+    background-color: #51b1fd; /* Theme primary color on hover */
+}
 
-        .filter-dropdown-wrapper {
-            position: relative;
-            flex-grow: 1;
-            margin-left: 15px; /* Space between button and dropdown */
-        }
+.filter-dropdown-wrapper {
+    position: relative;
+    flex-grow: 1;
+    margin-left: 15px; /* Space between button and dropdown */
+}
 
-        .filter-selected-text {
-            background-color: #081a19; /* Dark background for selected text area */
-            color: #b0b2b7; /* Light grey text */
-            padding: 15px 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Thin white border */
-            border-radius: 8px; /* Rounded corners */
-            cursor: pointer;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
-        }
+.filter-selected-text {
+    background-color: #081a19; /* Dark background for selected text area */
+    color: #b0b2b7; /* Light grey text */
+    padding: 15px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Thin white border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
 
-        .filter-selected-text:hover {
-            border-color: #51b1fd; /* Highlight border on hover */
-        }
+.filter-selected-text:hover {
+    border-color: #51b1fd; /* Highlight border on hover */
+}
 
-        .filter-dropdown-menu {
-            position: absolute;
-            top: 100%; /* Position below the selected text */
-            left: 0;
-            width: 100%;
-            background-color: #081a19; /* Dark background for dropdown */
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Thin white border */
-            border-radius: 8px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            z-index: 100;
-            max-height: 200px; /* Max height for scrollability */
-            overflow-y: auto; /* Enable scrolling */
-            display: none; /* Hidden by default */
-            padding: 10px 0;
-        }
+.filter-dropdown-menu {
+    position: absolute;
+    top: 100%; /* Position below the selected text */
+    left: 0;
+    width: 100%;
+    background-color: #081a19; /* Dark background for dropdown */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Thin white border */
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 9999; /* Very high z-index as requested */
+    max-height: 350px; /* Increased max height for "large" dropdown */
+    overflow-y: auto; /* Enable scrolling if content exceeds max height */
+    display: none; /* Hidden by default */
+    padding: 10px 0;
+}
 
-        .filter-dropdown-menu.active {
-            display: block; /* Show when active */
-        }
+.filter-dropdown-menu.active {
+    display: block; /* Show when active */
+}
 
-        .filter-dropdown-menu ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+.filter-dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-        .filter-dropdown-menu ul li {
-            color: #b0b2b7;
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: background-color 0.2s ease, color 0.2s ease;
-        }
+.filter-dropdown-menu ul li {
+    color: #b0b2b7;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
 
-        .filter-dropdown-menu ul li:hover,
-        .filter-dropdown-menu ul li.selected {
-            background-color: #51b1fd; /* Highlight on hover/selection */
-            color: #fff;
-        }
+.filter-dropdown-menu ul li:hover,
+.filter-dropdown-menu ul li.selected {
+    background-color: #51b1fd; /* Highlight on hover/selection */
+    color: #fff;
+}
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .filter-container {
-                width: 95%; /* Wider on smaller screens */
-                flex-direction: column; /* Stack items vertically */
-                align-items: stretch; /* Stretch to full width */
-            }
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .filter-container {
+        width: 95%; /* Wider on smaller screens */
+        flex-direction: column; /* Stack items vertically */
+        align-items: stretch; /* Stretch to full width */
+        padding: 15px; /* Adjust padding for mobile */
+    }
 
-            .filter-group {
-                width: 100%; /* Full width for each group */
-                margin-left: 0;
-            }
+    .filter-group {
+        width: 100%; /* Full width for each group */
+        margin-left: 0;
+    }
 
-            .filter-button {
-                margin-right: 15px; /* Space between button and dropdown on stacked layout */
-            }
+    .filter-button {
+        margin-right: 15px; /* Space between button and dropdown on stacked layout */
+    }
 
-            .filter-dropdown-wrapper {
-                margin-left: 0; /* Remove left margin when stacked */
-                width: 100%;
-            }
-        }
+    .filter-dropdown-wrapper {
+        margin-left: 0; /* Remove left margin when stacked */
+        width: 100%;
+    }
+}
