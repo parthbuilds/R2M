@@ -1,9 +1,9 @@
 /*-----------------------------------------------------------------------------------
 
-    Template Name: Runok - Web Agency HTML5 Template
-    Author: RRDevs
-    Support: rubelmah55@gmail.com
-    Description: Runok - Web Agency HTML5 Template
+    Template Name: R2M
+    Author: Parth Builds
+    Support: parthbuilds@gmail.com
+    Description: R2M
     Version: 1.0
 
 -----------------------------------------------------------------------------------
@@ -153,6 +153,7 @@ p {
   color: var(--rr-color-text-body);
   margin-bottom: 15px;
   line-height: 28px;
+  text-align: justify;
 }
 
 a:focus,
@@ -709,7 +710,7 @@ ul {
 .reveal img {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transform-origin: left;
 }
 
@@ -3718,7 +3719,7 @@ START: Header CSS
 }
 
 .header .primary-header-inner .header-menu-wrap ul .menu-item-has-children ul li a {
-  padding-right: 0;
+  padding-right: 5px;
 }
 
 .header .primary-header-inner .header-menu-wrap ul .menu-item-has-children:after {
@@ -4715,7 +4716,7 @@ START: Header CSS
 .header-11 .primary-header .primary-header-inner .header-menu-wrap ul li ul li a {
   padding: 20px 0;
   padding-left: 30px;
-}
+}                                                     
 
 .header-11 .primary-header .primary-header-inner .header-menu-wrap ul .menu-item-has-children a {
   padding-right: 17px;
@@ -5209,8 +5210,8 @@ START: Header CSS
   margin-bottom: 15px;
 }
 
+
 .mean-bar .mean-nav.mean-nav>ul li ul li a {
-  padding: 0;
   font-size: 14px;
   font-weight: 500;
   text-transform: capitalize;
@@ -7835,7 +7836,7 @@ START: About CSS
 .about-img-box .img-1 img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .about-img-box .img-2 {
@@ -7843,6 +7844,7 @@ START: About CSS
   max-width: 650px;
   width: 100%;
   height: 480px;
+  object-fit: contain;
 }
 
 @media only screen and (max-width: 992px) {
@@ -8144,6 +8146,7 @@ START: About CSS
 
 .about-content-4 .section-heading p {
   margin-bottom: 40px;
+  
 }
 
 .about-content-4 .about-counter-wrap {
@@ -8249,11 +8252,29 @@ START: About CSS
 }
 
 .about-img-wrap-5 .img-1 {
-  height: 490px;
-  max-width: 505px;
+  height: 100%;
+  max-width: 100%;
   width: 100%;
   object-fit: cover;
+  margin-left: 30px;
 }
+
+@media (max-width: 991.98px) { 
+    .img-1 {
+    margin-left: -10px;
+  }
+}
+
+@media (max-width: 991.98px) { 
+  .about-section-5 .row {
+    flex-direction: column-reverse; 
+    
+  }
+}
+
+
+
+
 
 .about-img-wrap-5 .about-img-2 {
   max-width: 323px;
@@ -15093,6 +15114,8 @@ START: Brand CSS
   margin-bottom: 30px;
   max-width: 690px;
   width: 100%;
+  text-align: justify;
+
 }
 
 .brand-content .brand-list {
@@ -15208,7 +15231,7 @@ START: Cta CSS
   position: absolute;
   top: 0;
   left: 0;
-  filter: saturate(0);
+  /* filter: saturate(0); */
 }
 
 .service-cta .overlay {
@@ -15226,7 +15249,7 @@ START: Cta CSS
   z-index: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 100px 0;
   flex-wrap: wrap;
   row-gap: 30px;
@@ -24166,3 +24189,161 @@ START: Footer CSS
         text-align: center;
     } */
 }
+
+/* Pages details css */
+
+.about-img-box {
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-11 {
+  width: 550px;
+  height: 550px;
+  overflow: hidden;
+  transform: scaleX(-1); /* Your original flip effect */
+}
+
+.img-11.reveal img {
+  width: 100%;
+  height: 100%;
+  object-fit:contain;
+  transform-origin: left;
+  display: block;
+}
+
+        /* Custom styles for the filter section */
+        .filter-section {
+            padding: 50px 0;
+            background-color: #02050A; /* Dark background similar to your theme */
+        }
+
+        .filter-container {
+            width: 80%; /* 80% screen width as requested */
+            margin: 0 auto; /* Center the container */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 20px; /* Space between items */
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            position: relative;
+            flex-grow: 1; /* Allow groups to grow */
+            min-width: 250px; /* Minimum width to prevent squishing */
+        }
+
+        .filter-button {
+            background-color: #1a2332; /* Darker background for buttons */
+            color: #fff;
+            border: none;
+            border-radius: 50%; /* Round buttons */
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            flex-shrink: 0; /* Prevent button from shrinking */
+        }
+
+        .filter-button:hover {
+            background-color: #51b1fd; /* Theme primary color on hover */
+        }
+
+        .filter-dropdown-wrapper {
+            position: relative;
+            flex-grow: 1;
+            margin-left: 15px; /* Space between button and dropdown */
+        }
+
+        .filter-selected-text {
+            background-color: #081a19; /* Dark background for selected text area */
+            color: #b0b2b7; /* Light grey text */
+            padding: 15px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Thin white border */
+            border-radius: 8px; /* Rounded corners */
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .filter-selected-text:hover {
+            border-color: #51b1fd; /* Highlight border on hover */
+        }
+
+        .filter-dropdown-menu {
+            position: absolute;
+            top: 100%; /* Position below the selected text */
+            left: 0;
+            width: 100%;
+            background-color: #081a19; /* Dark background for dropdown */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Thin white border */
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            max-height: 200px; /* Max height for scrollability */
+            overflow-y: auto; /* Enable scrolling */
+            display: none; /* Hidden by default */
+            padding: 10px 0;
+        }
+
+        .filter-dropdown-menu.active {
+            display: block; /* Show when active */
+        }
+
+        .filter-dropdown-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .filter-dropdown-menu ul li {
+            color: #b0b2b7;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .filter-dropdown-menu ul li:hover,
+        .filter-dropdown-menu ul li.selected {
+            background-color: #51b1fd; /* Highlight on hover/selection */
+            color: #fff;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .filter-container {
+                width: 95%; /* Wider on smaller screens */
+                flex-direction: column; /* Stack items vertically */
+                align-items: stretch; /* Stretch to full width */
+            }
+
+            .filter-group {
+                width: 100%; /* Full width for each group */
+                margin-left: 0;
+            }
+
+            .filter-button {
+                margin-right: 15px; /* Space between button and dropdown on stacked layout */
+            }
+
+            .filter-dropdown-wrapper {
+                margin-left: 0; /* Remove left margin when stacked */
+                width: 100%;
+            }
+        }

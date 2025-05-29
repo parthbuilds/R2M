@@ -481,26 +481,10 @@ START: About CSS
         }
     }
     .img-1{
-        height: 490px;
-        max-width: 505px;
+        height: 100%;
+        max-width: 100%;
         width: 100%;
         object-fit: cover;
-    }
-    .about-img-2{
-        max-width: 323px;
-        width: 100%;
-        height: 338px;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        @include breakpoint(sm){
-            border: none;
-        }
-        .img-2{
-            border-top: 10px solid #02050A;
-            border-left: 10px solid #02050A;
-            object-fit: cover;
-        }
     }
 }
 
