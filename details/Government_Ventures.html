@@ -73,7 +73,7 @@
                                     <a href="/about.html">About</a>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="service.html">Services</a>
+                                    <a href="/service.html">Services</a>
                                     <ul>
                                         <li><a href="/details/atl_marketing.html">ATL Marketing</a></li>
                                         
@@ -214,40 +214,53 @@
             <section class="service-section pb-130 pt-130">
                 <div class="container">
                     <div class="section-heading">
-                        <h4 class="sub-heading after-none" data-text-animation="fade-in" data-duration="1.5">Explore Our
-                            Expertise</h4>
+                        <h4 class="sub-heading after-none" data-text-animation="fade-in" data-duration="1.5">Explore
+                            Our Expertise</h4>
                         <h2 class="section-title" data-text-animation="fade-in-right" data-split="char"
                             data-duration="0.6" data-stagger="0.04">Marketing solutions designed to amplify your brand.
                         </h2>
                     </div>
 
-                    <div class="filter-controls">
-                        <select id="category-filter">
-                            <option value="all">All Categories</option>
-                            <option value="atl">ATL Marketing</option>
-                            <option value="ttl">TTL Marketing</option>
-                            <option value="b2b">B2B Marketing</option>
-                            <option value="pos">POS Marketing</option>
-                            <option value="exhibition">Exhibition</option>
-                            <option value="pr_and_media">PR & Media</option>
-                            <option value="brand">Brand Marketing</option>
-                            <option value="entertainment">Entertainment Marketing</option>
-                            <option value="merchandise">Merchandise Marketing</option>
-                            <option value="corporate_events">Corporate Events</option>
-                        </select>
+                    <section class="filter-section">
+                        <div class="filter-container">
+                            <div class="filter-group">
+                                <div class="filter-dropdown-wrapper">
+                                    <div id="category-selected-text" class="filter-selected-text">
+                                        Category: All
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                    <div id="category-dropdown-menu" class="filter-dropdown-menu">
+                                        <ul>
+                                            <li data-filter="all">All</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <button id="category-filter-button" class="filter-button">
+                                    <i class="fas fa-layer-group"></i> </button>
+                            </div>
 
-                        <select id="brand-filter">
-                            <option value="all">All Brands</option>
-                            <option value="brand_a">Brand A</option>
-                            <option value="brand_b">Brand B</option>
-                            <option value="brand_c">Brand C</option>
-                            <option value="brand_d">Brand D</option>
-                            <option value="brand_e">Brand E</option>
-                        </select>
-                    </div>
+                            <div class="filter-group">
+                                <div class="filter-dropdown-wrapper">
+                                    <div id="brand-selected-text" class="filter-selected-text">
+                                        Brand: All
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                    <div id="brand-dropdown-menu" class="filter-dropdown-menu">
+                                        <ul>
+                                            <li data-filter="all">All</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <button id="brand-filter-button" class="filter-button">
+                                    <i class="fas fa-tags"></i> </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    
                     <div class="row gy-5 service-items-container">
                         <div class="col-lg-3 col-md-6 service-item" data-category="atl" data-brands="brand_a,brand_b">
-                            <h4 class="service-text"><a href="/details/atl_marketing.html">ATL Project 1</a></h4>
+                            <h4 class="service-text"><a href="/details/atl_marketing.html">atl Marketing</a></h4>
                             <div class="service-thumb">
                                 <div class="overlay-color"></div>
                                 <img src="/assets/img/service/ATLarketing.jpg" alt="service">
