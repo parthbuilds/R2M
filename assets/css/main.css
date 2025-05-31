@@ -18095,6 +18095,42 @@ blockquote .content .author:before {
   }
 }
 
+.project-details-content .project-details-video-container {
+    height: 700px;
+    width: 100%;
+    overflow: hidden;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.project-details-content .project-details-video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media only screen and (max-width: 992px) {
+    .project-details-content .project-details-video-container {
+        height: 500px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .project-details-content .project-details-video-container {
+        height: 400px;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .project-details-content .project-details-video-container {
+        height: 300px;
+    }
+}
+
 .project-details-content .project-details-items {
   background-color: var(--rr-color-bg-1);
   padding: 40px;
@@ -22589,6 +22625,7 @@ START: Footer CSS
 [data-theme=light] .mobile-side-menu .side-menu-list li {
   color: var(--rr-color-heading-primary);
 }
+
 
 [data-theme=light] .header .primary-header-inner .header-right-wrap .header-right .header-right-item .mobile-side-menu-toggle {
   color: var(--rr-color-heading-primary);
