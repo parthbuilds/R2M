@@ -19,8 +19,9 @@
     <link rel="stylesheet" href="/assets/css/carouselTicker.css">
     <link rel="stylesheet" href="/assets/css/swiper.min.css">
     <link rel="stylesheet" href="/assets/css/main.css">
-    <style>
-        /* Basic styling for filter controls */
+    <link rel="stylesheet" href="/assets/css/filter.css"> <style>
+        /* Your existing styles, potentially moved to filter.css for reusability if desired */
+        /* Basic styling for filter controls (already in filter.css, but kept for context) */
         .filter-controls {
             display: flex;
             justify-content: center;
@@ -47,9 +48,10 @@
         }
 
         /* Hide elements that don't match the filter */
-        .service-item.hidden {
+        /* This rule is handled by the JS directly setting display:none/block, not by adding a class */
+        /* .service-item.hidden {
             display: none;
-        }
+        } */
     </style>
 </head>
 
@@ -193,7 +195,7 @@
     <div id="smooth-wrapper">
         <div id="smooth-content">
 
-            <section class="page-header" data-background="../assets/img/bg-img/page-header-bg.jpg">
+            <section class="page-header" data-background="/assets/img/bg-img/Government.png">
                 <div class="overlay"></div>
                 <div class="shapes">
                     <div class="shape shape-1"><img src="../assets/img/shapes/page-header-shape-1.png" alt="shape">
@@ -205,9 +207,9 @@
                 </div>
                 <div class="container">
                     <div class="page-header-content text-center">
-                        <h1 class="title">Government Ventures</h1>
+                        <!-- <h1 class="title">Government Ventures</h1>
                         <h4 class="sub-title"><a class="home" href="/index.html">Home</a><a class="home"
-                                href="/service.html">Service </a><a class="inner-page" href="/service.html">Government Ventures</a></h4>
+                                href="/service.html">Service </a><a class="inner-page" href="/service.html">Government Ventures</a></h4> -->
                     </div>
                 </div>
             </section>
@@ -226,7 +228,7 @@
                             <div class="filter-group">
                                 <div class="filter-dropdown-wrapper">
                                     <div id="category-selected-text" class="filter-selected-text">
-                                        Category: All
+                                        Type of Marketing: All
                                         <i class="fas fa-chevron-down"></i>
                                     </div>
                                     <div id="category-dropdown-menu" class="filter-dropdown-menu">
@@ -241,122 +243,30 @@
 
                             <div class="filter-group">
                                 <div class="filter-dropdown-wrapper">
-                                    <div id="brand-selected-text" class="filter-selected-text">
-                                        Brand: All
+                                    <div id="state-selected-text" class="filter-selected-text">
+                                        State: All
                                         <i class="fas fa-chevron-down"></i>
                                     </div>
-                                    <div id="brand-dropdown-menu" class="filter-dropdown-menu">
+                                    <div id="state-dropdown-menu" class="filter-dropdown-menu">
                                         <ul>
                                             <li data-filter="all">All</li>
                                         </ul>
                                     </div>
                                 </div>
-                                <button id="brand-filter-button" class="filter-button">
-                                    <i class="fas fa-tags"></i> </button>
+                                <button id="state-filter-button" class="filter-button">
+                                    <i class="fas fa-map-marker-alt"></i> </button>
                             </div>
                         </div>
                     </section>
 
                     
                     <div class="row gy-5 service-items-container">
-                        <div class="col-lg-3 col-md-6 service-item" data-category="atl" data-brands="brand_a,brand_b">
+                        <div class="col-lg-3 col-md-6 service-item" id="project-1" data-category="ATL Marketing" data-state="Uttar Pradesh">
                             <h4 class="service-text"><a href="/project_detials/Government_Ventures/Ayodhya_UP_Gov.html">Uttar Pradesh</a></h4>
                             <div class="service-thumb">
                                 <div class="overlay-color"></div>
                                 <img src="/assets/img/project_details/Ayodhya/Govt. FK 300x360.png" alt="service">
                                 <a href="/project_detials/Government_Ventures/Ayodhya_UP_Gov.html" class="service-btn">Read Details <i
-                                        class="fa-regular fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 service-item" data-category="ttl" data-brands="brand_b,brand_c">
-                            <h4 class="service-text"><a href="/details/ttl_marketing.html">TTL Project 1</a></h4>
-                            <div class="service-thumb">
-                                <div class="overlay-color"></div>
-                                <img src="/assets/img/service/ATLarketing.jpg" alt="service">
-                                <a href="/details/ttl_marketing.html" class="service-btn">Read Details <i
-                                        class="fa-regular fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 service-item" data-category="pos" data-brands="brand_a,brand_d">
-                            <h4 class="service-text"><a href="/details/pos_marketing.html">POS Project 1</a></h4>
-                            <div class="service-thumb">
-                                <div class="overlay-color"></div>
-                                <img src="/assets/img/service/ATLarketing.jpg" alt="service">
-                                <a href="/details/pos_marketing.html" class="service-btn">Read Details <i
-                                        class="fa-regular fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 service-item" data-category="b2b" data-brands="brand_c,brand_e">
-                            <h4 class="service-text"><a href="/details/b2b_marketing.html">B2B Project 1</a></h4>
-                            <div class="service-thumb">
-                                <div class="overlay-color"></div>
-                                <img src="/assets/img/service/ATLarketing.jpg" alt="service">
-                                <a href="/details/b2b_marketing.html" class="service-btn">Read Details <i
-                                        class="fa-regular fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 service-item" data-category="exhibition" data-brands="brand_a">
-                            <h4 class="service-text"><a href="/details/exhibition.html">Exhibition Project 1</a></h4>
-                            <div class="service-thumb">
-                                <div class="overlay-color"></div>
-                                <img src="/assets/img/service/exhibition.jpg" alt="service">
-                                <a href="/details/exhibition.html" class="service-btn">Read Details <i
-                                        class="fa-regular fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 service-item" data-category="pr_and_media" data-brands="brand_b">
-                            <h4 class="service-text"><a href="/details/pr_and_media.html">PR & Media Project 1</a></h4>
-                            <div class="service-thumb">
-                                <div class="overlay-color"></div>
-                                <img src="/assets/img/service/PR&MediaMarketing.jpg" alt="service">
-                                <a href="/details/pr_and_media.html" class="service-btn">Read Details <i
-                                        class="fa-regular fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 service-item" data-category="brand" data-brands="brand_d">
-                            <h4 class="service-text"><a href="/details/brand_marketing.html">Brand Project 1</a></h4>
-                            <div class="service-thumb">
-                                <div class="overlay-color"></div>
-                                <img src="/assets/img/service/BrandMarketing.jpg" alt="service">
-                                <a href="/details/brand_marketing.html" class="service-btn">Read Details <i
-                                        class="fa-regular fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 service-item" data-category="entertainment" data-brands="brand_e">
-                            <h4 class="service-text"><a href="/details/entertainment_marketing.html">Entertainment Project 1</a>
-                            </h4>
-                            <div class="service-thumb">
-                                <div class="overlay-color"></div>
-                                <img src="/assets/img/service/EntertainmentMarketing.png" alt="service">
-                                <a href="/details/entertainment_marketing.html" class="service-btn">Read Details <i
-                                        class="fa-regular fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 service-item" data-category="merchandise" data-brands="brand_a,brand_c">
-                            <h4 class="service-text"><a href="/details/merchandise_marketing.html">Merchandise Project 1</a>
-                            </h4>
-                            <div class="service-thumb">
-                                <div class="overlay-color"></div>
-                                <img src="/assets/img/service/MerchendiseMarketing.jpg" alt="service">
-                                <a href="/details/merchandise_marketing.html" class="service-btn">Read Details <i
-                                        class="fa-regular fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 service-item" data-category="corporate_events" data-brands="brand_b,brand_d">
-                            <h4 class="service-text"><a href="/details/corporate_events.html">Corporate Events Project 1</a></h4>
-                            <div class="service-thumb">
-                                <div class="overlay-color"></div>
-                                <img src="/assets/img/service/corporateEvents.jpg" alt="service">
-                                <a href="/details/corporate_events.html" class="service-btn">Read Details <i
                                         class="fa-regular fa-arrow-right"></i></a>
                             </div>
                         </div>
@@ -449,37 +359,6 @@
         <div class="switcher-button-inner"></div>
     </div>
 
-    <script>
-        // Original script for service details (kept for context, but not directly related to new filter)
-        const urlParams = new URLSearchParams(window.location.search);
-        const serviceId = urlParams.get('id');
-
-        fetch('data.json')
-            .then(response => response.json())
-            .then(data => {
-                const service = data.find(item => item.id === serviceId);
-                if (service) {
-                    // This section is for a specific service details page, not the main service listing
-                    // document.querySelector('.page-header-content .title').textContent = service.title;
-                    // document.querySelector('.service-details-thumb img').src = service.image;
-                    // document.querySelector('.service-details-content h2').textContent = service.title;
-                    // document.querySelector('.service-details-content p').textContent = service.description;
-
-                    // const detailsList = document.querySelector('.service-details-list');
-                    // detailsList.innerHTML = ''; // Clear existing list items
-                    // service.details.forEach(detail => {
-                    //     const li = document.createElement('li');
-                    //     li.textContent = detail;
-                    //     detailsList.appendChild(li);
-                    // });
-                } else {
-                    // Handle case where service is not found (e.g., display an error message)
-                    // document.querySelector('.service-details-content').innerHTML = '<p>Service details not found.</p>';
-                }
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    </script>
-
     <script src="../assets/js/vendor/jquary-3.6.0.min.js"></script>
     <script src="../assets/js/vendor/bootstrap-bundle.js"></script>
     <script src="../assets/js/vendor/imagesloaded-pkgd.js"></script>
@@ -498,7 +377,6 @@
     <script src="../assets/js/slider.js"></script>
     <script src="../assets/js/contact.js"></script>
     <script src="../assets/js/main.js"></script>
-    <script src="../assets/js/filter.js"></script>
-</body>
+    <script src="../assets/js/governmentVenturesFilter.js"></script> </body>
 
 </html>

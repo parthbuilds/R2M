@@ -10,21 +10,25 @@ document.addEventListener('DOMContentLoaded', function () {
     let selectedCategory = 'all';
     let selectedBrand = 'all';
 
-    // Function to populate dropdowns dynamically from service items
+    // Function to populate dropdowns dynamically from service items or manually
     function populateDropdowns() {
-        // --- START: Manual definition of categories and brands ---
-        // If you want to manually define categories, uncomment and modify this line:
-        const categories = new Set(['ATL Marketing', 'TTL Marketing', 'POS Marketing', 'B2B Marketing', 'Exhibition', 'Pr and Media', 'Brand Marketing', 'Entertainment Marketing', 'Merchandise Marketing', 'Corporate Events', 'Government Ventures']);
+        // --- START: Manual definition of categories and brands (RECOMMENDED) ---
+        // These values MUST EXACTLY MATCH the data-category and data-brands attributes in your HTML.
+        const categories = new Set([
+            'ATL Marketing', 'TTL Marketing', 'POS Marketing', 'B2B Marketing',
+            'Exhibition', 'PR & Media', 'Brand Marketing', 'Entertainment Marketing',
+            'Merchandise Marketing', 'Corporate Events', 'Government Ventures','Gifting','Packaging',
+        ]);
 
-        // If you want to manually define brands, uncomment and modify this line:
         const brands = new Set([
-            "ABInBev", "Bacardi", "Beam Global", "Castrol", "Coca-Cola", "Exxon Mobil", "Kelloggs", "Marks", "Philips", "Sangam", "SGMA", "Shell", "SSB Homes", "Whirlpool", "Zydus", "Amul", "Honesty Uniforms", "Mahaveer Textiles", "Pepsi"
+            "ABInBev", "Bacardi", "Beam Global", "Castrol", "Coca-Cola", "Exxon Mobil",
+            "Kelloggs", "Marks", "Philips", "Sangam", "SGMA", "Shell", "SSB Homes",
+            "Whirlpool", "Zydus", "Amul", "Honesty Uniforms", "Mahaveer Textiles", "Pepsi"
         ]);
         // --- END: Manual definition of categories and brands ---
 
-        // If you still want to extract from data attributes AND add manual ones,
-        // you would keep the serviceItems.forEach loop and then add to the Sets.
-        // For example:
+        // You could also dynamically extract them if your dataset is huge and changes often.
+        // If you were to extract from data attributes, you'd ensure the parsing logic matches:
         /*
         serviceItems.forEach(item => {
             if (item.dataset.category) {
@@ -46,18 +50,16 @@ document.addEventListener('DOMContentLoaded', function () {
         // Add unique categories to the category dropdown
         categories.forEach(category => {
             const li = document.createElement('li');
-            li.dataset.filter = category;
-            // Format text for display (e.g., "atl_marketing" becomes "Atl Marketing")
-            li.textContent = category.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
+            li.dataset.filter = category; // The value used for filtering
+            li.textContent = category;    // The display text (which is already formatted correctly)
             categoryList.appendChild(li);
         });
 
         // Add unique brands to the brand dropdown
         brands.forEach(brand => {
             const li = document.createElement('li');
-            li.dataset.filter = brand;
-            // Format text for display (e.g., "brand_a" becomes "Brand A")
-            li.textContent = brand.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
+            li.dataset.filter = brand; // The value used for filtering
+            li.textContent = brand;    // The display text
             brandList.appendChild(li);
         });
     }
@@ -66,12 +68,16 @@ document.addEventListener('DOMContentLoaded', function () {
     function filterServiceItems() {
         serviceItems.forEach(item => {
             // Get categories and brands associated with the current service item
+            // This correctly handles multiple comma-separated values in data-category/data-brands
             const itemCategories = item.dataset.category ? item.dataset.category.split(',').map(c => c.trim()) : [];
             const itemBrands = item.dataset.brands ? item.dataset.brands.split(',').map(b => b.trim()) : [];
 
             // Check if the item matches the selected category or if 'All' is selected
+            // selectedCategory must be INCLUDED in itemCategories array
             const categoryMatch = selectedCategory === 'all' || itemCategories.includes(selectedCategory);
+            
             // Check if the item matches the selected brand or if 'All' is selected
+            // selectedBrand must be INCLUDED in itemBrands array
             const brandMatch = selectedBrand === 'all' || itemBrands.includes(selectedBrand);
 
             // Show or hide the item based on both category and brand matches
@@ -109,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
     categoryDropdownMenu.addEventListener('click', function (event) {
         // Check if the clicked element is an LI item
         if (event.target.tagName === 'LI') {
-            selectedCategory = event.target.dataset.filter; // Update the selected category
+            selectedCategory = event.target.dataset.filter; // Update the selected category from data-filter
             categorySelectedText.textContent = `Category: ${event.target.textContent}`; // Update the displayed text
             categoryDropdownMenu.classList.remove('active'); // Close the dropdown
             filterServiceItems(); // Re-filter the service items
@@ -123,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
     brandDropdownMenu.addEventListener('click', function (event) {
         // Check if the clicked element is an LI item
         if (event.target.tagName === 'LI') {
-            selectedBrand = event.target.dataset.filter; // Update the selected brand
+            selectedBrand = event.target.dataset.filter; // Update the selected brand from data-filter
             brandSelectedText.textContent = `Brand: ${event.target.textContent}`; // Update the displayed text
             brandDropdownMenu.classList.remove('active'); // Close the dropdown
             filterServiceItems(); // Re-filter the service items
@@ -136,11 +142,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Global click listener to close dropdowns if clicked outside
     document.addEventListener('click', function (event) {
         // Check if the click was outside the category dropdown and its trigger elements
-        if (!categoryDropdownMenu.contains(event.target) && event.target !== categoryFilterButton && event.target !== categorySelectedText) {
+        if (!categoryDropdownMenu.contains(event.target) && event.target !== categoryFilterButton && event.target !== categorySelectedText && !categoryFilterButton.contains(event.target) && !categorySelectedText.contains(event.target)) {
             categoryDropdownMenu.classList.remove('active');
         }
         // Check if the click was outside the brand dropdown and its trigger elements
-        if (!brandDropdownMenu.contains(event.target) && event.target !== brandFilterButton && event.target !== brandSelectedText) {
+        if (!brandDropdownMenu.contains(event.target) && event.target !== brandFilterButton && event.target !== brandSelectedText && !brandFilterButton.contains(event.target) && !brandSelectedText.contains(event.target)) {
             brandDropdownMenu.classList.remove('active');
         }
     });

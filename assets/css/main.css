@@ -1036,7 +1036,7 @@ ul {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* --color-text: papayawhip; */
+    --color-text: papayawhip;
     /* --color-bg: navy;
     --color-bg-accent: #2626a0; */
   }
@@ -13478,7 +13478,7 @@ START: Sponsor CSS
 }
 
 .page-header .overlay {
-  background-color: rgba(2, 5, 10, 0.8);
+  background: linear-gradient(270deg, rgba(12, 24, 30, 0.15) 12.7%, rgba(12, 19, 30, 0.15) 68.39%);
   width: 100%;
   height: 100%;
   position: absolute;
@@ -18080,7 +18080,7 @@ blockquote .content .author:before {
 .project-details-content .project-details-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 @media only screen and (max-width: 992px) {
