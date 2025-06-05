@@ -330,8 +330,8 @@
                                         <li>Strategic shelf design and planograms to drive visibility and trial</li>
                                     </ul>
                                     <p><b>Through thoughtful material choices, vibrant visuals, and engaging layouts, we
-                                        turned traditional wine shops into
-                                        premium destinations for discovery and delight</b></p>
+                                            turned traditional wine shops into
+                                            premium destinations for discovery and delight</b></p>
                                 </div>
 
                             </div>
@@ -352,6 +352,69 @@
                 </div>
             </section>
 
+            <!-- ./ about-section-2 -->
+            <section class="full-width-image-carousel pt-70 pb-70">
+                <div class="container-fluid">
+                    <div class="section-heading text-center mb-50">
+                        <h2 class="section-title" data-text-animation="fade-in-right" data-split="char"
+                            data-duration="0.6" data-stagger="0.03">Project Gallery</h2>
+                    </div>
+                    <div class="swiper myFullScreenSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0005.png"
+                                    alt="Retail Transformation Wine Shop" class="img-fluid">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0006.png"
+                                    alt="Retail Transformation Wine Shop" class="img-fluid">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0007.png"
+                                    alt="Retail Transformation Wine Shop" class="img-fluid">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0008.png"
+                                    alt="Retail Transformation Wine Shop" class="img-fluid">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0009.png"
+                                    alt="Retail Transformation Wine Shop" class="img-fluid">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0010.png"
+                                    alt="Retail Transformation Wine Shop" class="img-fluid">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.00011.png"
+                                    alt="Retail Transformation Wine Shop" class="img-fluid">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.00012.png"
+                                    alt="Retail Transformation Wine Shop" class="img-fluid">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.00013.png"
+                                    alt="Retail Transformation Wine Shop" class="img-fluid">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.00014.png"
+                                    alt="Retail Transformation Wine Shop" class="img-fluid">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.00015.png"
+                                    alt="Retail Transformation Wine Shop" class="img-fluid">
+                            </div>
+
+                        </div>
+
+                        <div class="swiper-pagination"></div>
+
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </section>
             <!-- ./ case-study -->
 
             <!-- <div class="comments-area">
@@ -592,6 +655,81 @@
     </div>
 
     <!-- JS here -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize the Full Screen Swiper
+            var fullScreenSwiper = new Swiper(".myFullScreenSwiper", {
+                slidesPerView: 1, // Show one slide at a time for full width effect
+                spaceBetween: 0, // No space between slides for a seamless look
+                loop: true, // Enable infinite looping of slides
+                autoplay: {
+                    delay: 4000, // Autoplay every 4 seconds
+                    disableOnInteraction: false, // Continue autoplay even after user interaction
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true, // Make pagination dots clickable
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                // Responsive breakpoints - crucial for responsiveness
+                breakpoints: {
+                    // When window width is >= 320px
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 0
+                    },
+                    // When window width is >= 768px (tablets)
+                    768: {
+                        slidesPerView: 1, // Still one for full-width image carousels
+                        spaceBetween: 0
+                    },
+                    // When window width is >= 1024px (desktops)
+                    1024: {
+                        slidesPerView: 1,
+                        spaceBetween: 0
+                    }
+                }
+            });
+
+            // Initialize the existing service carousel (if it's not already initialized elsewhere)
+            // Ensure this targets the correct service carousel if you have multiple.
+            // Assuming 'service-carousel' is the class for the section you provided.
+            var serviceSwiper = new Swiper(".service-carousel", {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination", // This might need a unique class if there are multiple paginations
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-nav.swiper-next", // Use the specific classes from your provided section
+                    prevEl: ".swiper-nav.swiper-prev",
+                },
+                breakpoints: {
+                    576: {
+                        slidesPerView: 2,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                    },
+                    992: {
+                        slidesPerView: 4,
+                    },
+                    1200: {
+                        slidesPerView: 4,
+                    },
+                },
+            });
+        });
+    </script>
     <script src="/assets/js/vendor/jquary-3.6.0.min.js"></script>
     <script src="/assets/js/vendor/bootstrap-bundle.js"></script>
     <script src="/assets/js/vendor/imagesloaded-pkgd.js"></script>
