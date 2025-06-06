@@ -24435,7 +24435,7 @@ START: Footer CSS
     max-width: 90%; /* Adjust image width within its wrapper to fit padding */
     max-height: 90%; /* Adjust image height within its wrapper to fit padding */
     width: auto; /* Ensure image scales proportionally */
-    height: auto; /* Ensure image scales proportionally */
+    height: 80%; /* Ensure image scales proportionally */
     object-fit: contain; /* Ensures image fits while maintaining aspect ratio */
     display: block;
 }
@@ -24508,4 +24508,4 @@ START: Footer CSS
     .full-width-image-carousel .carousel-image-wrapper {
         height: 400px; /* Reduced height for screens up to 992px, matching reference */
     }
-}
+}}
