@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const categories = new Set([
             'ATL Marketing', 'TTL Marketing', 'POS Marketing', 'B2B Marketing',
             'Exhibition', 'PR & Media', 'Brand Marketing', 'Entertainment Marketing',
-            'Merchandise Marketing', 'Corporate Events', 'Government Ventures','Gifting','Packaging',
+            'Merchandise Marketing', 'Corporate Events', 'Government Ventures', 'Gifting', 'Packaging',
         ]);
 
         const brands = new Set([
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Check if the item matches the selected category or if 'All' is selected
             // selectedCategory must be INCLUDED in itemCategories array
             const categoryMatch = selectedCategory === 'all' || itemCategories.includes(selectedCategory);
-            
+
             // Check if the item matches the selected brand or if 'All' is selected
             // selectedBrand must be INCLUDED in itemBrands array
             const brandMatch = selectedBrand === 'all' || itemBrands.includes(selectedBrand);
@@ -108,6 +108,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Event listener for the brand filter button (icon button)
     brandFilterButton.addEventListener('click', function () {
+        toggleDropdown(brandDropdownMenu);
+    });
+
+    // --- NEW: Event listener for clicking the category bar itself ---
+    categorySelectedText.addEventListener('click', function () {
+        toggleDropdown(categoryDropdownMenu);
+    });
+
+    // --- NEW: Event listener for clicking the brand bar itself ---
+    brandSelectedText.addEventListener('click', function () {
         toggleDropdown(brandDropdownMenu);
     });
 

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Gallery with Image Carousel and Thumbnails</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    
+    <style>
+        /* Define a primary color variable if you use it, otherwise remove */
+        :root {
+            --rr-primary-color: #007aff; /* Example primary color for active pagination/thumbnails */
+        }
+
+        /* --- Your provided CSS for the main carousel section --- */
+        .full-width-image-carousel {
+            padding: 70px 0; /* Updated from your HTML (pt-70 pb-70) */
+            background-color: transparent; /* Ensures no background color on the section itself */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- Swiper Slide Padding (Creates padding around the image within each slide) --- */
+        /* Applied to the main slider slides, using the existing .myFullScreenSwiper class */
+        @media (min-width: 992px) {
+            .myFullScreenSwiper .swiper-slide {
+                padding: 20px; /* Add padding around the image within each slide */
+                box-sizing: border-box; /* Include padding in the element's total width and height */
+            }
+        }
+
+        .myFullScreenSwiper .swiper-slide {
+            padding: 0px 250px ; /* Add padding around the image within each slide */
+            box-sizing: border-box; /* Include padding in the element's total width and height */
+        }
+
+        /* --- Carousel Image Wrapper (Controls image height and centering) --- */
+        /* This wrapper is applied to the main images within the slides */
+        .full-width-image-carousel .carousel-image-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 700px; /* Default height taken from project-details-img reference */
+            overflow: hidden;
+            background-color: #f5f5f5; /* Light background for the padding area */
+            border-radius: 8px; /* Slightly rounded corners for a softer look */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for better definition */
+        }
+
+        /* --- Individual Image Styling within the Wrapper --- */
+        .full-width-image-carousel .carousel-image-wrapper img {
+            max-width: 50%; /* Adjust image width within its wrapper to fit padding */
+            max-height: 90%; /* Adjust image height within its wrapper to fit padding */
+            width: auto; /* Ensure image scales proportionally */
+            height: 80%; /* Ensure image scales proportionally */
+            object-fit: contain; /* Ensures image fits while maintaining aspect ratio */
+            display: block;
+        }
+        /* Your HTML uses .img-fluid on the image directly, so we need to ensure it doesn't conflict */
+        .myFullScreenSwiper .swiper-slide img.img-fluid {
+            max-width: 100%; /* Override max-width to fit the parent carousel-image-wrapper */
+            height: 100%; /* Override height to fit the parent carousel-image-wrapper */
+            object-fit: contain; /* Ensure it contains within the wrapper */
+        }
+
+
+        /* --- Swiper Navigation Arrows (Refined look) --- */
+        .full-width-image-carousel .swiper-button-next,
+        .full-width-image-carousel .swiper-button-prev {
+            color: #ffffff; /* White icon color for contrast */
+            background-color: rgba(0, 0, 0, 0.5); /* Slightly visible background for buttons */
+            backdrop-filter: blur(5px); /* Add a subtle blur effect for modern look */
+            width: 40px; /* Increased size for better clickability */
+            height: 40px;
+            font-size: 20px; /* Adjusted font size */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            z-index: 10;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-top: 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+            position: absolute; /* Ensure correct positioning */
+        }
+
+        .full-width-image-carousel .swiper-button-next:hover,
+        .full-width-image-carousel .swiper-button-prev:hover {
+            background-color: rgba(0, 0, 0, 0.7); /* Darker background on hover */
+            color: #fff; /* White icon on hover */
+            transform: translateY(-50%) scale(1.05); /* Slight enlarge, less aggressive */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+        }
+
+        .full-width-image-carousel .swiper-button-prev {
+            left: 150px;
+            right: auto;
+        }
+
+        .full-width-image-carousel .swiper-button-next {
+            right: 150px;
+            left: auto;
+        }
+
+        /* --- Swiper Pagination Dots (Refined look) --- */
+        .full-width-image-carousel .swiper-pagination {
+            bottom: 20px;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            text-align: center;
+        }
+
+        .full-width-image-carousel .swiper-pagination-bullet {
+            background: rgba(0, 0, 0, 0.4);
+            opacity: 1;
+            width: 8px;
+            height: 8px;
+            margin: 0 4px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .full-width-image-carousel .swiper-pagination-bullet-active {
+            background: var(--rr-primary-color);
+            transform: scale(1.3);
+        }
+
+        /* --- Responsive adjustments for Image Carousel height --- */
+        @media only screen and (max-width: 992px) {
+            .full-width-image-carousel .carousel-image-wrapper {
+                height: 400px; /* Reduced height for screens up to 992px, matching reference */
+            }
+             .full-width-image-carousel .swiper-button-prev {
+                left: 20px; /* Adjust navigation button position */
+            }
+            .full-width-image-carousel .swiper-button-next {
+                right: 20px; /* Adjust navigation button position */
+            }
+            .myFullScreenSwiper .swiper-slide {
+                padding: 0px 0px; /* Remove padding on smaller screens */
+            }
+        }
+
+
+        /* --- New CSS for Thumbnail Slider --- */
+        /* New ID for the thumbnail slider */
+        #fullWidthThumbnails {
+            width: 100%;
+            margin-top: 20px; /* Space between main slider and thumbnails */
+            padding: 0 150px; /* Align thumbnails with the main slider content area */
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 992px) {
+            #fullWidthThumbnails {
+                padding: 0 20px; /* Adjust padding for smaller screens */
+            }
+        }
+
+        #fullWidthThumbnails .swiper-slide {
+            width: 120px; /* Fixed width for each thumbnail */
+            height: 80px; /* Fixed height for each thumbnail */
+            cursor: pointer;
+            opacity: 0.6; /* Slightly dim inactive thumbnails */
+            transition: opacity 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+            border: 2px solid transparent; /* Border for active state */
+            box-sizing: border-box;
+            border-radius: 4px;
+            overflow: hidden; /* Hide overflow for sharp corners */
+        }
+
+        #fullWidthThumbnails .swiper-slide-thumb-active {
+            opacity: 1; /* Full opacity for active thumbnail */
+            border-color: var(--rr-primary-color); /* Highlight active thumbnail */
+            transform: scale(1.05); /* Slightly enlarge active thumbnail */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #fullWidthThumbnails .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the thumbnail area */
+            display: block;
+        }
+
+        /* --- General/Utility CSS (from your previous components, include as needed) --- */
+        .container-fluid {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .text-center {
+            text-align: center !important;
+        }
+        .mb-50 {
+            margin-bottom: 50px !important;
+        }
+        .section-heading {
+            /* Your existing styles for section-heading */
+        }
+        .section-title {
+            font-size: 2.5rem; /* Example font size */
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="full-width-image-carousel pt-70 pb-70">
+        <div class="container-fluid">
+            <div class="section-heading text-center mb-50">
+                <h2 class="section-title" data-text-animation="fade-in-right" data-split="char"
+                    data-duration="0.6" data-stagger="0.03">Project Gallery</h2>
+            </div>
+            
+            <div class="swiper myFullScreenSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="carousel-image-wrapper">
+                            <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0005.png"
+                                alt="Retail Transformation Wine Shop" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="carousel-image-wrapper">
+                            <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0006.png"
+                                alt="Retail Transformation Wine Shop" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="carousel-image-wrapper">
+                            <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0007.png"
+                                alt="Retail Transformation Wine Shop" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="carousel-image-wrapper">
+                            <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0008.png"
+                                alt="Retail Transformation Wine Shop" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="carousel-image-wrapper">
+                            <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0009.png"
+                                alt="Retail Transformation Wine Shop" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="carousel-image-wrapper">
+                            <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0010.png"
+                                alt="Retail Transformation Wine Shop" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="carousel-image-wrapper">
+                            <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0011.png"
+                                alt="Retail Transformation Wine Shop" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="carousel-image-wrapper">
+                            <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0012.png"
+                                alt="Retail Transformation Wine Shop" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="carousel-image-wrapper">
+                            <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0013.png"
+                                alt="Retail Transformation Wine Shop" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="carousel-image-wrapper">
+                            <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0014.png"
+                                alt="Retail Transformation Wine Shop" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="carousel-image-wrapper">
+                            <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0015.png"
+                                alt="Retail Transformation Wine Shop" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+            <div class="swiper" id="fullWidthThumbnails">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0005.png"
+                            alt="Thumbnail 1">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0006.png"
+                            alt="Thumbnail 2">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0007.png"
+                            alt="Thumbnail 3">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0008.png"
+                            alt="Thumbnail 4">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0009.png"
+                            alt="Thumbnail 5">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0010.png"
+                            alt="Thumbnail 6">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0011.png"
+                            alt="Thumbnail 7">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0012.png"
+                            alt="Thumbnail 8">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0013.png"
+                            alt="Thumbnail 9">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0014.png"
+                            alt="Thumbnail 10">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/assets/img/project_details/Retail Transformation/Carousel/Bacardi_Jimi's_Storeroom_3D_A3_V11.0015.png"
+                            alt="Thumbnail 11">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize the Thumbnail Swiper first
+            var fullWidthThumbnails = new Swiper("#fullWidthThumbnails", {
+                spaceBetween: 10,
+                slidesPerView: 4, // Default number of visible thumbnails
+                freeMode: true, // Allows dragging thumbnails freely
+                watchSlidesProgress: true, // Tracks progress for active state
+                breakpoints: {
+                    640: {
+                        slidesPerView: 5,
+                    },
+                    768: {
+                        slidesPerView: 6,
+                    },
+                    1024: {
+                        slidesPerView: 7, // Adjust number of visible thumbnails for larger screens
+                    },
+                    1200: {
+                        slidesPerView: 8, // More thumbnails on very large screens
+                    }
+                }
+            });
+
+            // Initialize the Main Image Swiper (using your .myFullScreenSwiper class)
+            var fullWidthMainSwiper = new Swiper(".myFullScreenSwiper", {
+                slidesPerView: 1,
+                spaceBetween: 0,
+                loop: true, // Enable infinite looping
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".full-width-image-carousel .swiper-pagination", // Target pagination within the carousel section
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".full-width-image-carousel .swiper-button-next", // Target nav buttons within the carousel section
+                    prevEl: ".full-width-image-carousel .swiper-button-prev",
+                },
+                thumbs: {
+                    swiper: fullWidthThumbnails, // Connect to the thumbnail Swiper
+                },
+                // Responsive breakpoints - crucial for responsiveness, as in your original script
+                breakpoints: {
+                    // When window width is >= 320px
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 0
+                    },
+                    // When window width is >= 768px (tablets)
+                    768: {
+                        slidesPerView: 1,
+                        spaceBetween: 0
+                    },
+                    // When window width is >= 1024px (desktops)
+                    1024: {
+                        slidesPerView: 1,
+                        spaceBetween: 0
+                    }
+                }
+            });
+
+            // If you have other Swiper initializations on your page (like the service carousel),
+            // you should keep them here. For example:
+            // var serviceSwiper = new Swiper(".service-carousel", {
+            //     slidesPerView: 1,
+            //     spaceBetween: 30,
+            //     loop: true,
+            //     autoplay: {
+            //         delay: 3000,
+            //         disableOnInteraction: false,
+            //     },
+            //     pagination: {
+            //         el: ".swiper-pagination",
+            //         clickable: true,
+            //     },
+            //     navigation: {
+            //         nextEl: ".swiper-nav.swiper-next",
+            //         prevEl: ".swiper-nav.swiper-prev",
+            //     },
+            //     breakpoints: {
+            //         576: { slidesPerView: 2 },
+            //         768: { slidesPerView: 3 },
+            //         992: { slidesPerView: 4 },
+            //         1200: { slidesPerView: 4 },
+            //     },
+            // });
+        });
+    </script>
+
+</body>
+</html>
